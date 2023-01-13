@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <h1 class="h2 pb-4 mt-5">Categories</h1>
+      <ul class="list-unstyled">
+          <li class="pb-3"*ngFor="let cat of categories">
+              <a class="d-flex justify-content-between text-decoration-none"
+              [routerLink]="['category',cat]">
+                  <span>{{cat.toUpperCase()}}</span>
+                  <i class="fa fa-fw fa-chevron-circle-right mt-1 "></i>
+              </a>
+          </li>
+      </ul>
+    </div>
+    <div class="col-md-8">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

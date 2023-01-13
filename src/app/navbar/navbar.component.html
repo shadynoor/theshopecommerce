@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container position-relative">
+
+    <a class="navbar-brand" href="#">The Shop</a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item middle">
+          <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item middle">
+          <a class="nav-link" routerLink="shop" routerLinkActive="active">Shop</a>
+        </li>
+        <li class="nav-item middle">
+          <a class="nav-link" routerLink="about" routerLinkActive="active">About</a>
+        </li>
+        <li class="nav-item middle">
+          <a class="nav-link" routerLink="contact" routerLinkActive="active">Contact</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav right-side ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active cart" (click)="showSearch()">
+            <i class="fa fa-fw fa-search text-dark mr-2"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active cart" href="#" routerLink="/cart">
+            <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+            <span *ngIf="index > 0"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/auth" *ngIf="!isAuth">
+            <i class="fa fa-fw fa-user text-dark mr-3"></i>
+          </a>
+          <a class="nav-link" routerLink="/auth" *ngIf="isAuth" (click)="logout()">
+            <i style="color:black" class="fa-solid fa-arrow-right-from-bracket"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <button class="navbar-toggler ms-auto togglerr" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<div class="search" #search>
+  <form>
+    <a (click)="close()"><i class="fa-solid fa-x"></i></a>
+    <input class="form-control" type="text" placeholder="Search" [(ngModel)] = "searchWord" name="search">
+    <button type="button" class="btn searchBtn" (click)="searchBtn()">
+      <i class="fa fa-fw fa-search text-dark mr-2"></i>
+    </button>
+  </form>
+
+</div>

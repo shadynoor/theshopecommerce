@@ -1,0 +1,42 @@
+@import '../../../styles.scss';
+
+.caro{
+  background-color: $bgColor;
+}
+h3{
+  color: $mainColor;
+  font-size: 40px;
+  font-weight: lighter;
+}
+h3 span{
+  font-weight: bold;
+}
+.carousel-control-prev,
+.carousel-control-next{
+  width: 5%;
+}
+.carousel-control-prev-icon ,
+.carousel-control-next-icon{
+  background-image: none;
+}
+.carousel-control-prev-icon ,
+.carousel-control-next-icon i {
+  font-size: 30px;
+  color: $mainColor;
+}
+.carousel-indicators button{
+  background-color: $mainColor;
+}
+
+@media (max-width:767px) {
+  .caro{
+    flex-direction: column-reverse !important;
+  }
+  .carousel-indicators{
+    bottom: -20px;
+  }
+  .carousel-control-prev,
+.carousel-control-next{
+  width: 15%;
+}
+}

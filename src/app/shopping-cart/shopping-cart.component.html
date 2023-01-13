@@ -1,0 +1,49 @@
+<div class="wrap cf">
+
+  <div class="heading cf">
+    <h1>My Cart</h1>
+    <a href="#" class="continue" routerLink="/shop">Continue Shopping</a>
+  </div>
+  <div class="cart">
+    <ul class="cartWrap">
+      <li class="items" *ngFor="let prod of products; let i = index">
+        <div class="d-flex justify-content-between align-items-center" *ngIf="prod">
+            <div class="cartSection">
+              <img [src]="prod.image" alt="" class="itemImg" />
+              <div>
+                <p class="itemNumber">#ITEM-{{prod.id}}</p>
+                <h3>{{prod.title}}</h3>
+                <p> <input type="number" min="1" [max]="prod.id" class="qty" [value]="prod.qty"/> x ${{prod.price}}</p>
+                <p class="stockStatus"> In Stock</p>
+              </div>
+            </div>
+            <div class="prodTotal cartSection d-flex flex-column justify-content-center align-items-center">
+              <p class="me-5">${{prod.price * prod.qty}}</p>
+              <button class="btn btn-sm btn-outline-danger" (click)="removeProduct(i)">Remove</button>
+            </div>
+        </div>
+        <hr>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="sum == 0">
+    <h1 class="text-center">No Items In Your Cart</h1>
+  </div>
+
+  <div *ngIf="sum > 0" class="promoCode">
+    <label for="promo">Have A Promo Code? <span style="font-size: 13px;" class="text-muted">Try shady</span></label>
+    <input type="text" name="promo" placholder="Enter Code" [disabled]="shipping == 0"/>
+    <a href="" routerLink="/cart" (click)="tryPromo($event)" class="btn"></a>
+  </div>
+
+
+  <div *ngIf="sum > 0" class="subtotal cf">
+    <ul>
+      <li class="totalRow"><span class="label">Subtotal</span><span class="value">${{sum}}</span></li>
+          <li class="totalRow"><span class="label">Shipping</span><span class="value">${{shipping}}</span></li>
+            <li class="totalRow final"><span class="label">Total</span><span class="value">${{sum + shipping}}</span></li>
+      <li class="totalRow"><a class="btn continue test" (click)="checkout()">Checkout</a></li>
+    </ul>
+  </div>
+</div>

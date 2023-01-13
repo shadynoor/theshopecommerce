@@ -1,0 +1,44 @@
+@import url(../../styles.scss);
+
+a{
+  color: black;
+  width: 300px;
+  font-size: 20px;
+}
+
+a i {
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+ a:focus >  i{
+   -webkit-transform: translateX(10px);
+   -moz-transform: translateX(10px);
+   -ms-transform: translateX(10px);
+   -o-transform: translateX(10px);
+   transform: translateX(10px);
+
+}
+
+// .move {
+//   -webkit-transform: translateX(10px);
+//   -moz-transform: translateX(10px);
+//   -ms-transform: translateX(10px);
+//   -o-transform: translateX(10px);
+//   transform: translateX(10px);
+//  -webkit-transition: .3s;
+//  -moz-transition: .3s;
+//  -ms-transition: .3s;
+//  -o-transition: .3s;
+//  transition: .3s;
+// }
+
+
+@media (max-width:991px) {
+  a{
+    width: auto;
+  }
+}

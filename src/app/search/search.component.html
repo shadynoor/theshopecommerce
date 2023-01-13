@@ -1,0 +1,31 @@
+<div class="container mt-5">
+
+  <div class="m-5 text-center py-5" *ngIf="!searchDone">
+    <h1>No Products Found Try Again</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4 mb-3"*ngFor="let prod of searchedProducts">
+      <div class="card position-relative m-auto">
+        <a class="cardImg">
+          <img [src]="prod.image" class="card-img-top" alt="...">
+          <div class="bgg">
+          </div>
+        </a>
+        <div class="card-body">
+          <h6 class="card-title">{{ prod.title | slice:15}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted ">Rate:  {{prod.rating?.rate}}</h6>
+          <p class="card-text">{{prod.price}}</p>
+        </div>
+
+        <div class="icons">
+          <a class="far fa-heart"></a>
+          <a class="far fa-eye" [routerLink]="['/products' , prod.category, prod.id]"></a>
+          <a class="fas fa-cart-plus" (click)="sendToCart(prod.id)"></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,19 @@
+/* Brand */
+.brand-img {
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transition: .5s;
+}
+.brand-img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+/* Carousel Brand */
+.carousel .h1 {
+  font-size: .5em !important;
+  color: #000 !important;
+}
+/* Services */
+.services-icon-wap {transition: .3s;}
+.services-icon-wap:hover, .services-icon-wap:hover i {color: #fff;}
+.services-icon-wap:hover {background: #69bb7e;}

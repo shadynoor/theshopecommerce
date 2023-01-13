@@ -1,0 +1,158 @@
+@import '../../../styles.scss';
+
+.container-fluid{
+  background-color: #E9EEF5;
+}
+.slider{
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+}
+.slider img{
+  width: 80px;
+  padding: 10px;
+  background-color: white;
+}
+.prod{
+  width: 100%;
+  height: 400px;
+  padding: 30px;
+  background-color: white;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+.prod img{
+  max-height: 100%;
+  display: block;
+  margin: auto;
+}
+.everyImg{
+  margin: 0 10px;
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  display: flex;
+  overflow: hidden;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+.everyImg img{
+  width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: auto;
+}
+.btns{
+  display: flex;
+  justify-content: space-between;
+}
+.btns button{
+  width: 49%;
+}
+@media (max-width:991px) {
+  .quan{
+    display: block !important;
+  }
+  .quantity{
+    margin: 0 !important;
+    margin-top: 10px !important;
+  }
+}
+.btn-success{
+  background-color: $mainColor !important;
+}
+
+
+
+
+.verified_customer_section{
+  display: grid;
+  grid-template-columns: 1fr;
+  border-radius: 10px;
+  border: 1px solid #746dff;
+  background-color: #746dff1a;
+  padding: 5px;
+  max-width: 540px;
+  margin: auto;
+}
+
+.image_review{
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+.image_review i{
+  font-size: 16px;
+  color: gold;
+  margin-left: 0;
+  margin-right: 2px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+.customer_image{
+  max-width: 80px;
+  max-width: 80px;
+}
+
+.customer_image img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  float: left;
+  margin-right: 10px;
+}
+
+
+.customer_name{
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 0;
+  text-align: left;
+  color: #2e2a39;
+  margin-bottom: 0;
+}
+
+
+.customer_bage{
+  float: left;
+  padding-right: 5px;
+}
+
+.customer_status .customer_bage img{
+  width: 12px;
+  height: 15px;
+}
+
+
+.customer_status_content{
+  padding-left: 5px;
+  margin-bottom: 0;
+  font-weight: 400;
+  font-size: 13px;
+  margin-top: 2px;
+  color: rgb(91, 191, 138);
+}
+
+.customer_comment{
+  padding-left: 5px;
+  padding-top: 10px;
+  margin-bottom: 0;
+  font-size: 15px;
+  color: #2e2a39;
+  margin-top: 3px;
+  font-weight: 300;
+  padding-right: 5px;
+  text-align: center;
+}

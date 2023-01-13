@@ -1,0 +1,34 @@
+<div class="container-fluid pb-5">
+
+  <div class="text-center details mt-5 py-5">
+    <div class="main-title" id="articles">
+      <h2>Featured Product</h2>
+    </div>
+    <p class="text-muted">
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </div>
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 d-flex align-items-center" *ngFor="let prod of products">
+        <div class="card">
+          <a href="#" class="d-flex align-items-center" [routerLink]="['/products/', prod.category , prod.id]">
+            <img [src]="prod.image" class="card-img-top" alt="...">
+          </a>
+          <div class="card-body mt-3">
+            <div class="d-flex justify-content-between align-items-start">
+              <h5 class="card-title">{{prod.title | slice:20}}</h5>
+              <span class="text-muted">{{prod.price}}</span>
+            </div>
+            <p class="card-text text-muted">{{prod.description | slice:200}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

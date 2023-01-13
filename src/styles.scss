@@ -1,1 +1,192 @@
 /* You can add global styles to this file, and also import other style files */
+
+$fontFamily: 'Roboto', sans-serif;
+$borderHeight:1px;
+$mainWidth:400px;
+$fontSize:14px;
+$bgColor: #EFEFEF;
+$lightBgColor: #24baef;
+$bgTransparent:rgba(36,186,239,.6);
+$fontColor:#fff;
+$borderColor: #a8a8a83d;
+$secondFontColor: #949cb0;
+$mainColor: #59ab6e;
+
+
+a{
+  text-decoration: none;
+}
+
+.main-title{
+  border: 2px solid black;
+  margin: 50px auto 80px;
+  padding: 10px;
+  position: relative;
+  width: fit-content;
+  z-index: 1;
+}
+.main-title::before , .main-title::after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: $mainColor;
+  transition:.3s;
+  z-index: -1;
+}
+.main-title::before{
+  left: -30px;
+}
+.main-title::after{
+  right: -30px;
+}
+
+
+@media (max-width:767px) {
+  .main-title::before{
+    left: -7px;
+  }
+  .main-title::after{
+    right: -7px;
+  }
+}
+.main-title:hover:before{
+  animation: move-left .5s linear forwards ;
+}
+.main-title:hover:after{
+  animation: move-right .5s linear forwards ;
+  -webkit-animation: move-right .5s linear forwards ;
+}
+.main-title:hover{
+  color: white;
+  border-color: white;
+  transition-delay: .5s;
+  transition-duration: .5s;
+}
+
+@keyframes move-left {
+  50%{
+      left:0;
+      width: 12px;
+      height: 12px;
+  }
+  100%{
+      left: 0;
+      width: 55%;
+      height: 100%;
+      border-radius: 0;
+  }
+}
+@keyframes move-right {
+  50%{
+      right:0;
+      width: 12px;
+      height: 12px;
+  }
+  100%{
+      right: 0;
+      width: 55%;
+      height: 100%;
+      border-radius: 0;
+  }
+}
+
+
+
+.cardImg{
+  width: 100%;
+  height: 400px;
+  background-color: white;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+.card-img-top{
+  max-height: 100%;
+  display: block;
+  margin: auto;
+}
+.card:hover{
+  transform: scale(1.03);
+  -webkit-transform: scale(1.03);
+  -moz-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  -o-transform: scale(1.03);
+
+}
+.card{
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+}
+.bgg{
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  background: rgba(0,0,0,.2);
+  visibility: hidden;
+  transition: .3s;
+  opacity: 0;
+}
+.card:hover .bgg{
+  visibility: visible;
+  opacity: 1;
+}
+.icons a{
+  background-color: $mainColor;
+  color: white;
+  z-index: 100;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  height: 300px;
+  width: 200px;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: .3s;
+}
+.card:hover .icons{
+  opacity: 1;
+}
+
+.fas:hover ,.far:hover{
+  transition: .3s;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+}
+.fas:active{
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}

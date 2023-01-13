@@ -1,0 +1,150 @@
+<div class="container-fluid">
+  <div class="container px-3">
+    <div class="row pt-5">
+      <div class="col-md-5 mt-4" *ngIf="product" >
+        <div class="border prod">
+          <img class="img-fluid" [src]="product.image" alt="">
+        </div>
+        <div>
+          <div class="slider">
+            <div class="everyImg">
+              <img class="img-fluid" style="cursor: pointer;" [src]="productImage" alt="" (click)="changeImg($event)" >
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-7 rounded border bg-white p-3 position-relative mt-4" *ngIf="product">
+        <h4>{{product.title}}</h4>
+        <h5 class="my-3">${{product.price}}</h5>
+        <div class="rating my-3 desc">
+          <i class="fa fa-star text-warning"></i>
+          <i class="fa fa-star text-warning"></i>
+          <i class="fa fa-star text-warning"></i>
+          <i class="fa fa-star text-warning"></i>
+          <i class="fa fa-star text-warning"></i>
+          <span>{{product.rating?.rate}}</span>
+          <span class="ms-5">{{product.rating?.count}}</span>
+        </div>
+
+        <div class="category my-4 desc">
+          <h5>Category: <span class="text-muted"> {{product.category}}</span></h5>
+        </div>
+
+        <div class="desc my-3">
+          <h5 class="my-3">Description</h5>
+          <span class="text-muted">{{product.description}}</span>
+        </div>
+
+        <div class="my-4 desc">
+          <h6>Pieces Available: <span class="text-muted">{{product.id}}</span></h6>
+        </div>
+
+
+          <div class="d-flex align-items-center my-3 desc quan">
+            <div class="d-flex align-items-center ">
+              <h6 class="me-3">Size: </h6>
+              <div>
+                <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off">
+                <label class="btn btn-success me-2" for="option1">S</label>
+
+                <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+                <label class="btn btn-success me-2" for="option2">M</label>
+
+                <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
+                <label class="btn btn-success me-2" for="option3">L</label>
+
+                <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
+                <label class="btn btn-success me-2" for="option4">XL</label>
+
+              </div>
+            </div>
+            <div class="d-flex align-items-center ms-4 quantity">
+              <h6 class="me-3">Quantity: </h6>
+              <div class="">
+                <button class="btn btn-success" (click)="dec($event)">-</button>
+                <span class="btn btn-secondary py-1 mx-2" style="cursor:auto" #qty>1</span>
+                <button class="btn btn-success" (click)="inc($event , product.id)">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="btns">
+            <button class="btn btn-success">Buy</button>
+            <button class="btn btn-success" (click)="sendToCart(product.id)">Add To Cart</button>
+          </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row bg-light p-5 mt-5">
+    <div class="main-title" id="articles">
+      <h2>Reviews</h2>
+    </div>
+
+    <div class="col-12" *ngFor="let comment of comments">
+      <div class="verified_customer_section mt-2" >
+          <div class="image_review">
+              <div class="customer_image">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS6H4T6NZ1nJUhCNDrN2d-mF1X77oGVMBC9mJGI3nzaQ&s" alt="customer image">
+            </div>
+
+              <div class="customer_name_review_status">
+                  <div class="customer_name">{{comment.email}}</div>
+                  <div class="customer_status d-flex align-items-center">
+                      <div class="customer_bage">
+                        <img src="https://cdn.shopify.com/s/files/1/0566/8241/4246/t/11/assets/icon-verified-1662629893290.png?v=1662629894" alt="">
+                      </div>
+                      <div class="customer_status_content mt-2">Verified Customer</div>
+                  </div>
+
+              </div>
+          </div>
+
+          <div class="customer_comment">{{comment.review}}</div>
+
+      </div>
+    </div>
+    <hr class="mt-3">
+    <div class="col-12 d-flex justify-content-start">
+      <input type="text" class="form-control me-2 w-50" [disabled]="!user.email" [(ngModel)] = "comment" placeholder="Add Your Review">
+      <button class="btn btn-success" (click)="addComment()" [disabled]="!user.email">Add Review</button>
+    </div>
+    <p *ngIf="!user.email" class="text-danger mt-2">You Have To Login To Add Review</p>
+  </div>
+
+  <div class="row bg-white py-5" *ngIf="productCat">
+
+    <div class="col-12">
+      <div class="main-title" id="articles">
+        <h2>Related Products</h2>
+      </div>
+    </div>
+
+    <div class=" col-md-4 d-flex justify-content-center"  *ngFor="let prod of productCat">
+      <div class=" card m-3 position-relative" style="width:18rem;">
+        <a class="cardImg"   >
+          <img [src]="prod.image" class="card-img-top" alt="...">
+          <div class="bgg">
+          </div>
+        </a>
+        <div class="card-body">
+          <h6 class="card-title">{{ prod.title | slice:10}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted ">Rate: {{prod.rating?.rate}}</h6>
+          <p class="card-text">{{prod.price}}</p>
+        </div>
+
+        <div class="icons">
+          <a class="far fa-heart"></a>
+          <a class="far fa-eye" [routerLink]="['/products' , prod.category, prod.id]"></a>
+          <a class="fas fa-cart-plus" (click)="sendToCart(prod.id)"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
